@@ -1,7 +1,16 @@
 <?php include 'includes/config.php'?>
-<?php include 'includes/header.php'?>
-<h1><?=$pageTitle?></h1>
+<?php get_header()?>
 <?php
+    
+//superglobal $_GET to grab querystring from URL
+    
+    if(isset($_GET['day']))
+    {//data in querystring, use it!
+        $day = $_GET['day'];
+    }else{//use current date
+        $day = date('l');
+    }
+
 $ctaHeading1 = 'Daily Specials';
         switch($day)
 {
@@ -48,7 +57,7 @@ $ctaHeading1 = 'Daily Specials';
         echo '
     <section class="page-section about-heading">
       <div class="container">
-        <img class="img-fluid rounded about-heading-img mb-3 mb-lg-0" src="img/' . $dailyImage . '" alt="">
+        <img class="img-fluid rounded about-heading-img mb-3 mb-lg-0" src="images/' . $dailyImage . '" alt="">
         <div class="about-heading-content">
           <div class="row">
             <div class="col-xl-9 col-lg-10 mx-auto">
@@ -65,4 +74,4 @@ $ctaHeading1 = 'Daily Specials';
       </div>
     </section>';
 ?>
-<?php include 'includes/footer.php'?>
+<?php get_footer()?>

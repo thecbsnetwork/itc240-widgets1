@@ -1,6 +1,5 @@
 <?php include 'includes/config.php'?>
-<?php include 'includes/header.php'?>
-<h1><?=$pageTitle?></h1>
+<?php get_header()?>
 <?php
 //email3.php
 
@@ -94,13 +93,4 @@ if(isset($_POST['Submit']))
     </section>'; 
 }
 ?>
-<?php include 'includes/footer.php'; 
-    function coffee_clean_post($key)
-{
-        if(isset($_POST[$key])){
-            return strip_tags(trim($_POST[$key]));
-        }else{
-            return '';
-        }
-}
-?>
+<?php get_footer()?>
