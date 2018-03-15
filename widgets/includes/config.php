@@ -29,6 +29,7 @@ $config = new stdClass;
 
 //these are the navigation links
 $config->nav1['index.php'] = "HOME";
+$config->nav1['inspiration.php'] = "INSPIRATION";
 $config->nav1['customers.php'] = "CUSTOMERS";
 $config->nav1['contact.php'] = "CONTACT";
 $config->nav1['daily.php'] = "DAILY";
@@ -38,7 +39,7 @@ define('THIS_PAGE',basename($_SERVER['PHP_SELF']));
 
 //START NEW THEME STUFF - be sure to add trailing slash!
 $sub_folder = 'widgets2/';//change to 'widgets' or 'sprockets' etc.
-$config->theme = 'Coffee';//sub folder to themes
+$config->theme = 'BusinessCasual';//sub folder to themes
 
 //will add sub-folder if not loaded to root:
 $config->physical_path = $_SERVER["DOCUMENT_ROOT"] . '/' . $sub_folder;
@@ -66,7 +67,7 @@ $config->loadhead = '';//place items in <head> element
 switch(THIS_PAGE){
         
     case 'template.php':
-        $pageTitle = 'Template';
+        $config->pageTitle = 'Template';
         $ctaImage = 'products-02.jpg';
         $ctaHeading1 = 'Try Our Widgets';
         $ctaHeading2 = 'Yummy Yummy';
@@ -74,27 +75,59 @@ switch(THIS_PAGE){
     break;    
         
     case 'index.php':
-        $pageTitle = 'Home';
+        $config->pageTitle = 'Home';
         $ctaImage = 'products-04.jpg';
         $ctaHeading1 = 'Try Our Homemade Widgets';
         $ctaHeading2 = 'So tasty';
         $ctaText = 'Mocha java variety, java froth single origin arabica wings. Carajillo, body aftertaste aged coffee frappuccino affogato. Cultivar cinnamon, mocha dark cultivar saucer aroma wings spoon irish dripper body. Strong, extra affogato, id coffee and sugar blue mountain siphon.';
     break;
         
+    case 'inspiration.php':
+        $config->pageTitle = 'Inspiration';
+    break;
+        
     case 'customers.php':
-        $pageTitle = 'Customers';
+        $config->pageTitle = 'Customers';
     break;
         
     case 'contact.php':
-        $pageTitle = 'Contact';
+        $config->pageTitle = 'Contact';
     break;
         
     case 'daily.php':
-        $pageTitle = 'Daily Special';
+        $config->pageTitle = 'Daily Special';
+    break;
+        
+    case 'admin_login.php':
+        $config->pageTitle = 'Admin Login';
+    break;
+
+    case 'admin_logout.php':
+        $config->pageTitle = 'Admin Logout';
+    break;
+    
+    case 'admin_dashboard.php':
+        $config->pageTitle = 'Admin Dashboard';
+    break;
+        
+    case 'admin_add.php':
+        $config->pageTitle = 'Add an Admin';
+    break;
+        
+    case 'admin_reset.php':
+        $config->pageTitle = 'Reset an Admin';
+    break;
+        
+    case 'admin_edit.php':
+        $config->pageTitle = 'Edit an Admin';
+    break;
+        
+    case 'admin_validate.php':
+        $config->pageTitle = 'Validate an Admin';
     break;
  
     default:
-        $pageTitle = THIS_PAGE; 
+        $config->pageTitle = THIS_PAGE; 
     break;
 }//end switch title tags
 

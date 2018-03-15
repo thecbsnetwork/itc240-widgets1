@@ -13,7 +13,7 @@ function myerror($myFile, $myLine, $errorMsg)
        echo "Error Message: <b>" . $errorMsg . "</b><br />";
        die();
     }else{
-		echo "I'm sorry, we have encountered an error. Would you like to buy some socks?";
+		echo "I'm sorry, we have encountered an error.  Would you like to buy some socks?";
 		die();
     }
 }
