@@ -54,6 +54,15 @@ function get_footer()
     get_header();
 }#get_footer() is same function, run second time with footer file
 
+function loadfoot(){
+    global $config;
+    if($config->virtual_path == 'BusinessCasual'){
+        echo '.bundle';
+    }else{
+        echo  '';
+    }
+}#include jquery files?
+
 /**
  * Wrapper function for processing data pulled from db
  *

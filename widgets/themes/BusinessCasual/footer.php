@@ -7,8 +7,7 @@
     </footer>
 
     <!-- Bootstrap core JavaScript -->
-    <script src="vendor/jquery/jquery.min.js"></script>
-    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-<?=$config->loadfoot;?>
+    <script src="<?=$config->theme_virtual?>vendor/jquery/jquery.min.js"></script>
+    <script src="<?=$config->theme_virtual?>vendor/bootstrap/js/bootstrap<?=$config->loadfoot;?>.min.js"></script>
   </body>
 </html>

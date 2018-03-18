@@ -50,17 +50,28 @@ echo '<section class="page-section cta">
 if($Feedback == '')
 {//data exists, show it
 
-    echo '<div>';
-    echo '<img src="uploads/goats-kittens/goatkitten-' . $id . '.jpg" /><br />';
-    echo '<blockquote>' . $quotation . '</blockquote>';
-    echo '<cite>' . $citation . '</cite><br />';
-    echo '</div><br />'; 
+    echo '<section class="page-section about-heading">
+      <div class="container">
+        <img class="img-fluid rounded about-heading-img mb-3 mb-lg-0" src="uploads/goats-kittens/goatkitten-' . $id . '.jpg" alt="">
+        <div class="about-heading-content">
+          <div class="row">
+            <div class="col-xl-9 col-lg-10 mx-auto">
+              <div class="bg-faded rounded p-5">
+                <h2 class="section-heading mb-4">
+                  <blockquote>' . $quotation . '</blockquote>';
+    echo '<cite>' . $citation . '</cite></h2>';
+    echo '</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>'; 
     
 }else{//warn user no data
     echo $Feedback;
 }    
 
-echo '<h2><a href="inspiration.php">Go Back</a></h2>';
+echo '<br /><h2><a href="inspiration.php">Go Back</a></h2>';
 
 //release web server resources
 @mysqli_free_result($result);

@@ -64,6 +64,16 @@ $config->pageBanner = 'Widgets';
 $config->pageSlogan = 'Our Widgets Are Better';
 $config->loadhead = '';//place items in <head> element
 
+/*
+#BusinessCasual
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    
+#Coffee
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+*/
+
 switch(THIS_PAGE){
         
     case 'template.php':
