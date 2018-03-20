@@ -4,6 +4,9 @@
 <?php include 'includes/config.php';?>
 <?php
 
+//enable go back button
+$url = htmlspecialchars($_SERVER['HTTP_REFERER']);
+
 //process querystring here
 if(isset($_GET['id']))
 {//process data
@@ -105,7 +108,7 @@ if($Feedback == '')
     echo $Feedback;
 }    
 
-echo '<h2><a href="inspiration.php">Go Back</a></h2>';
+echo '<h2><a href="' . $url . '">Go Back</a></h2>';
 
 //release web server resources
 @mysqli_free_result($result);
