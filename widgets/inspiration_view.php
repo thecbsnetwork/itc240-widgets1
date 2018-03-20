@@ -52,7 +52,7 @@ if($Feedback == '')
 
     echo '<section class="page-section about-heading">
       <div class="container">
-        <img class="img-fluid rounded about-heading-img mb-3 mb-lg-0" src="uploads/goats-kittens/goatkitten-' . $id . '.jpg" alt="">
+        <img class="img-fluid rounded about-heading-img mb-3 mb-lg-0" src="uploads/inspiration' . $id . '.jpg" alt="">
         <div class="about-heading-content">
           <div class="row">
             <div class="col-xl-9 col-lg-10 mx-auto">
@@ -67,11 +67,45 @@ if($Feedback == '')
       </div>
     </section>'; 
     
+    if(startSession() &&
+    isset($_SESSION["AdminID"]))
+    {#only admins can see 'peek a boo' link:
+        echo '<br /><h4 align="center"><a href="' . $config->virtual_path . '/upload_form.php?' . $_SERVER['QUERY_STRING'];
+        echo '&thumbWidth=200';
+        echo '">UPLOAD IMAGE</a></h4>';
+    
+        /*
+        # if you wish to overwrite any of these options on the view page, 
+        # you may uncomment this area, and provide different parameters:						
+        echo '<div align="center"><a href="' . VIRTUAL_PATH . 'upload_form.php?' . $_SERVER['QUERY_STRING']; 
+        echo '&imagePrefix=customer';
+        echo '&uploadFolder=upload/';
+        echo '&extension=.jpg';
+        echo '&createThumb=TRUE';
+        echo '&thumbWidth=50';
+        echo '&thumbSuffix=_thumb';
+        echo '&sizeBytes=100000';
+        echo '">UPLOAD IMAGE</a></div>';
+        */	
+    }
+    if(isset($_GET['msg']))
+    {#msg on querystring implies we're back from uploading new image
+        $msgSeconds = (int)$_GET['msg'];
+        $currSeconds = time();
+        if(($msgSeconds + 2)> $currSeconds)
+        {//link only visible once, due to time comparison of qstring data to current timestamp
+            echo '<p align="center"><script type="text/javascript">';
+            echo 'document.write("<from><input type=button value=\'IMAGE UPLOADED! CLICK TO REFRESH PAGE\' onClick=history.go()></form>")</scr';
+            echo 'ipt></p>';
+        }
+    }
+    
+    echo '</p>';    
 }else{//warn user no data
     echo $Feedback;
 }    
 
-echo '<br /><h2><a href="inspiration.php">Go Back</a></h2>';
+echo '<h2><a href="inspiration.php">Go Back</a></h2>';
 
 //release web server resources
 @mysqli_free_result($result);

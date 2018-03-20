@@ -33,7 +33,9 @@ if(mysqli_num_rows($result) > 0)
     echo '<h4 align="center">There are ' . $myPager->showTotal() . ' ' . $itemz . '.</h4><br />';
     while($row = mysqli_fetch_assoc($result))
     {
-        echo '<h5>See the inspiration for:</h5><a href="inspiration_view.php?id=' . $row['picID'] . '"><blockquote>' . $row['quotation'] . '</blockquote></a><br /><br />';
+        echo '<img src="' . $config->virtual_path . 'uploads/inspiration' . dbOut($row['picID']) . '_thumb.jpg" /><br />';
+        echo '<h5>See the inspiration for:</h5><a href="inspiration_view.php?id=' . $row['picID'] . '"><blockquote>' . $row['quotation'] . '</blockquote></a><br />';
+        
     }  
     echo $myPager->showNAV();//show pager if enough records
 
